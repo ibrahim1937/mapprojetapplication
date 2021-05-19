@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+  <script src="/main.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary" id="mainnavbar">
+        <a class="navbar-brand" href="/">Site</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/monument">Monument</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/visite">Visite</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text text-center text-primary">
+                    Gestion monument
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-11 m-3">
+
+
+                
+                    <form action="/monument/update" method="post">
+                        <h3 class="text text-center text-success h3">
+                            Ajouter un monument
+                        </h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control"  style="visibility: hidden;" value="<%= e.id %>" name="id" required>
+                          </div>
+                        <div class="form-group">
+                            <label for="nom-monument">Nom Monumenet</label>
+                            <input type="text" class="form-control" id="nom-monument" placeholder="Entrez le nom du monument..." name="nom" value="<%= e.nom %>" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" class="form-control" id="longitude" placeholder="Entrez la Longitude du monument..." name="longitude" value="<%= e.longitude %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="largitude">Latitude</label>
+                            <input type="text" class="form-control" id="latitude" placeholder="Entrez la Latitude du monument..." name="latitude" value="<%= e.latitude %>"  required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="vill">Ville</label>
+                            <input type="text" class="form-control" id="ville" placeholder="Entrez la ville du monument..."  name="ville" value="<%= e.ville %>"  required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn m-3 btn-success" type="submit">Modifier</button>
+                            <button class="btn m-3 btn-primary" type="reset">Réinitialiser</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
